@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujjwal Kumar | Video Editor</title>
+    <meta name="description" content="Clean edits that keep viewers watching. Portfolio of Ujjwal Kumar, Video Editor.">
+    
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Custom Configuration (Light SaaS Theme) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        background: '#F9FAFB', // Light gray/off-white background
+                        card: '#FFFFFF',       // Pure white cards
+                        primary: '#111827',    // Near black for main text
+                        secondary: '#6B7280',  // Muted gray for secondary text
+                        bordercolor: '#E5E7EB',// Soft gray borders
+                        accent: '#000000',     // Pure black for buttons/accents
+                    },
+                    boxShadow: {
+                        subtle: '0 4px 20px rgba(0, 0, 0, 0.05)',
+                        card: '0 2px 10px rgba(0, 0, 0, 0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Light mode scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9FAFB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9CA3AF;
+        }
+
+        /* Green Dot Wave Animation */
+        @keyframes soft-wave {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(3.5); opacity: 0; }
+        }
+        .animate-soft-wave {
+            animation: soft-wave 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        /* Smooth fade for grid toggling */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-primary font-sans antialiased overflow-x-hidden selection:bg-gray-200">
+
+    <!-- ================= HEADER SECTION ================= -->
+    <header class="sticky top-0 z-50 w-full max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between border-b border-bordercolor bg-background/80 backdrop-blur-md">
+        <a href="https://www.instagram.com/editbyujjwal/" target="_blank" rel="noopener noreferrer" class="text-[16px] md:text-[18px] font-medium text-primary tracking-tight hover:text-secondary transition-colors duration-200">
+            Editbyujjwal
+        </a>
+        
+        <!-- Status Indicator -->
+        <div class="flex items-center gap-2" aria-label="Status: Available">
+            <span class="text-[13px] text-secondary font-medium hidden sm:block">Available for work</span>
+            <div class="relative flex h-2 w-2 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[#22C55E] animate-soft-wave"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-[1100px] mx-auto px-6 w-full flex flex-col items-center">
+
+        <!-- ================= HERO SECTION ================= -->
+        <section class="w-full flex flex-col items-center text-center mt-[80px] mb-[100px]">
+            
+            <!-- Profile Image in a clean white card border -->
+            <div class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden shadow-card mb-8 border-[4px] border-white">
+                <img src="profilepicture.jpg" alt="Ujjwal Kumar - Video Editor" loading="lazy" class="w-full h-full object-cover grayscale opacity-90">
+            </div>
+
+            <!-- Typography matching the reference (Serif + Italic) -->
+            <h1 class="text-[38px] md:text-[56px] font-serif text-primary leading-[1.1] mb-6 max-w-[800px]">
+                Clear, simple edits <br>
+                <span class="italic text-gray-500 font-light">focused on your content.</span>
+            </h1>
+
+            <p class="text-[16px] md:text-[18px] text-secondary font-normal max-w-[480px] mb-10 leading-relaxed">
+                Good editing helps your audience follow what you're saying, instead of pulling attention away from it.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#work" class="bg-accent text-white px-8 py-3.5 rounded-full text-[15px] font-medium hover:bg-gray-800 transition-all duration-200 ease-in-out shadow-md text-center">
+                    View My Work
+                </a>
+                <a href="#contact" class="bg-white border border-bordercolor text-primary px-8 py-3.5 rounded-full text-[15px] font-medium hover:bg-gray-50 transition-all duration-200 ease-in-out shadow-sm text-center">
+                    Contact Me
+                </a>
+            </div>
+
+        </section>
+
+        <!-- ================= WORK SECTION ================= -->
+        <section id="work" class="w-full flex flex-col items-center mb-[100px] scroll-mt-[80px]">
+            
+            <h2 class="text-[28px] md:text-[36px] font-serif font-medium mb-[40px] text-primary">
+                Selected Work
+            </h2>
+
+            <!-- Toggle Switch (Light SaaS Style) -->
+            <div class="flex p-1.5 bg-gray-100 border border-gray-200/60 rounded-full mb-[50px] shadow-inner" role="tablist">
+                <button id="btn-short" role="tab" aria-selected="true" class="px-6 py-2 rounded-full bg-white text-primary shadow-sm text-[14px] font-medium transition-all focus:outline-none">
+                    Short Form
+                </button>
+                <button id="btn-long" role="tab" aria-selected="false" class="px-6 py-2 rounded-full bg-transparent text-secondary hover:text-primary text-[14px] font-medium transition-all focus:outline-none">
+                    Long Form
+                </button>
+            </div>
+
+            <!-- Short Form Video Grid -->
+            <div id="grid-short" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] fade-in" role="tabpanel">
+                
+                <!-- Video Card 1 -->
+                <div class="relative w-full aspect-[9/16] bg-black rounded-[20px] overflow-hidden group cursor-pointer shadow-card border border-gray-200">
+                    <video src="1.mp4" autoplay preload="metadata" aria-label="Talking Head Smooth Motion" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03]" muted loop playsinline></video>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="relative w-full aspect-[9/16] bg-black rounded-[20px] overflow-hidden group cursor-pointer shadow-card border border-gray-200">
+                    <video src="2.mp4" autoplay preload="metadata" aria-label="Talking Head Retention Focused" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03]" muted loop playsinline></video>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="relative w-full aspect-[9/16] bg-black rounded-[20px] overflow-hidden group cursor-pointer shadow-card border border-gray-200">
+                    <video src="3.mp4" autoplay preload="metadata" aria-label="Talking Head Clean Captions" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03]" muted loop playsinline></video>
+                </div>
+
+                <!-- Video Card 4 -->
+                <div class="relative w-full aspect-[9/16] bg-black rounded-[20px] overflow-hidden group cursor-pointer shadow-card border border-gray-200">
+                    <video src="4.mp4" autoplay preload="metadata" aria-label="Talking Head Minimal Style" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03]" muted loop playsinline></video>
+                </div>
+
+            </div>
+
+            <!-- Long Form Video Grid (Hidden initially) -->
+            <div id="grid-long" class="hidden w-full grid grid-cols-1 md:grid-cols-2 gap-[24px]" role="tabpanel">
+                
+                <!-- Long Form Video Card 1 -->
+                <div class="relative w-full aspect-video bg-black rounded-[20px] overflow-hidden group cursor-pointer shadow-card border border-gray-200">
+                    <video src="long1.mp4" autoplay preload="metadata" aria-label="YouTube Essay Cinematic Edit" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03]" muted loop playsinline></video>
+                </div>
+
+                <!-- Long Form Video Card 2 -->
+                <div class="relative w-full aspect-video bg-black rounded-[20px] overflow-hidden group cursor-pointer shadow-card border border-gray-200">
+                    <video src="long2.mp4" autoplay preload="metadata" aria-label="Documentary Narrative Flow" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-[1.03]" muted loop playsinline></video>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= SERVICES SECTION ================= -->
+        <section id="services" class="w-full flex flex-col items-center mb-[100px] scroll-mt-[80px]">
+            
+            <h2 class="text-[28px] md:text-[36px] font-serif font-medium mb-[40px] text-primary">
+                What I Do
+            </h2>
+
+            <!-- 2-Column Grid matching the layout provided -->
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+                
+                <!-- Service 1 -->
+                <div class="bg-card border border-bordercolor shadow-card hover:shadow-md transition-shadow duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left">
+                    <div class="w-12 h-12 rounded-[14px] bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold text-primary mb-3">Short Form Content</h3>
+                    <p class="text-[15px] text-secondary leading-relaxed">Fast-paced edits designed for short-form content, with clear pacing, captions, and motion that keep viewers engaged.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-card border border-bordercolor shadow-card hover:shadow-md transition-shadow duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left">
+                    <div class="w-12 h-12 rounded-[14px] bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold text-primary mb-3">Motion Graphics</h3>
+                    <p class="text-[15px] text-secondary leading-relaxed">Simple motion graphics and animated captions that support the message and make content easier to follow.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-card border border-bordercolor shadow-card hover:shadow-md transition-shadow duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left">
+                    <div class="w-12 h-12 rounded-[14px] bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold text-primary mb-3">YouTube Videos</h3>
+                    <p class="text-[15px] text-secondary leading-relaxed">Structured edits that improve clarity, pacing, and viewer retention throughout longer videos.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-card border border-bordercolor shadow-card hover:shadow-md transition-shadow duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left">
+                    <div class="w-12 h-12 rounded-[14px] bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0-2.5.5.5 0 0 1 .5-.5h13"/></svg>
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold text-primary mb-3">Educational Content</h3>
+                    <p class="text-[15px] text-secondary leading-relaxed">Clean editing that helps viewers focus on the information without unnecessary distractions.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-card border border-bordercolor shadow-card hover:shadow-md transition-shadow duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left">
+                    <div class="w-12 h-12 rounded-[14px] bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold text-primary mb-3">Personal Brand Content</h3>
+                    <p class="text-[15px] text-secondary leading-relaxed">Edits tailored for creators who want their content to feel professional while staying authentic.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-card border border-bordercolor shadow-card hover:shadow-md transition-shadow duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left">
+                    <div class="w-12 h-12 rounded-[14px] bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="m3 12 18 0"/><path d="m18 18-6-6"/><path d="m6 18 6-6"/></svg>
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold text-primary mb-3">Custom Projects</h3>
+                    <p class="text-[15px] text-secondary leading-relaxed">Need something different? From social media content to promotional videos, projects can be tailored to your goals.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= Q&A SECTION ================= -->
+        <section id="faq" class="w-full max-w-[800px] flex flex-col items-center mb-[100px] scroll-mt-[80px]">
+            
+            <h2 class="text-[28px] md:text-[36px] font-serif font-medium mb-[40px] text-primary">
+                Q&A
+            </h2>
+
+            <div class="w-full flex flex-col gap-4">
+                
+                <!-- Q1 -->
+                <div class="faq-item bg-card border border-bordercolor shadow-card rounded-[24px] overflow-hidden w-full transition-all duration-300">
+                    <button class="faq-button w-full text-left p-6 md:p-8 flex justify-between items-center focus:outline-none cursor-pointer">
+                        <h3 class="text-[17px] md:text-[19px] font-semibold text-primary pr-4">What's your editing style?</h3>
+                        <span class="faq-icon text-primary transition-transform duration-300 flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                            <p class="text-[15px] text-secondary leading-relaxed">
+                                I focus on clean, simple edits that make content easier to follow. Every cut, caption, and visual element is added with a purpose, helping the message stay clear, engaging, and easy to understand.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item bg-card border border-bordercolor shadow-card rounded-[24px] overflow-hidden w-full transition-all duration-300">
+                    <button class="faq-button w-full text-left p-6 md:p-8 flex justify-between items-center focus:outline-none cursor-pointer">
+                        <h3 class="text-[17px] md:text-[19px] font-semibold text-primary pr-4">Can you show similar work you've done before?</h3>
+                        <span class="faq-icon text-primary transition-transform duration-300 flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                            <p class="text-[15px] text-secondary leading-relaxed">
+                                Yes. You can explore my selected work to get a better understanding of my editing style and the type of content I work on.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item bg-card border border-bordercolor shadow-card rounded-[24px] overflow-hidden w-full transition-all duration-300">
+                    <button class="faq-button w-full text-left p-6 md:p-8 flex justify-between items-center focus:outline-none cursor-pointer">
+                        <h3 class="text-[17px] md:text-[19px] font-semibold text-primary pr-4">What's your turnaround time?</h3>
+                        <span class="faq-icon text-primary transition-transform duration-300 flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                            <p class="text-[15px] text-secondary leading-relaxed">
+                                Turnaround time depends on the scope, length, and complexity of the project. Once I review the requirements, I'll provide a clear delivery timeline.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item bg-card border border-bordercolor shadow-card rounded-[24px] overflow-hidden w-full transition-all duration-300">
+                    <button class="faq-button w-full text-left p-6 md:p-8 flex justify-between items-center focus:outline-none cursor-pointer">
+                        <h3 class="text-[17px] md:text-[19px] font-semibold text-primary pr-4">How many revisions do you offer?</h3>
+                        <span class="faq-icon text-primary transition-transform duration-300 flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                            <p class="text-[15px] text-secondary leading-relaxed">
+                                I offer unlimited revisions to ensure the final video aligns with your expectations and goals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item bg-card border border-bordercolor shadow-card rounded-[24px] overflow-hidden w-full transition-all duration-300">
+                    <button class="faq-button w-full text-left p-6 md:p-8 flex justify-between items-center focus:outline-none cursor-pointer">
+                        <h3 class="text-[17px] md:text-[19px] font-semibold text-primary pr-4">How do your edits help the content?</h3>
+                        <span class="faq-icon text-primary transition-transform duration-300 flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                            <p class="text-[15px] text-secondary leading-relaxed">
+                                My goal is to edit in a way that matches the audience the content is intended for. By focusing on clarity, pacing, and viewer experience, I aim to make the content easier to follow, improve audience retention, and help it perform better.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact" class="w-full max-w-[800px] bg-card border border-bordercolor shadow-card rounded-[32px] p-[50px] md:p-[80px] flex flex-col items-center text-center mb-[100px] scroll-mt-[80px]">
+            
+            <h2 class="text-[32px] font-serif font-medium mb-3 text-primary">
+                Work with me
+            </h2>
+            
+            <p class="text-[16px] text-secondary font-normal mb-10 max-w-[300px]">
+                Let’s build content that performs and engages your audience.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="mailto:editbyujjwal18@gmail.com" class="bg-accent text-white px-10 py-4 rounded-full text-[15px] font-medium hover:bg-gray-800 shadow-md transition-all duration-200 focus:ring-2 focus:ring-primary focus:outline-none w-full sm:w-auto">
+                    Email Me
+                </a>
+                <a href="https://wa.me/9162549229" target="_blank" rel="noopener noreferrer" class="bg-white border border-bordercolor text-primary px-10 py-4 rounded-full text-[15px] font-medium hover:bg-gray-50 shadow-sm transition-all duration-200 focus:ring-2 focus:ring-primary focus:outline-none w-full sm:w-auto">
+                    WhatsApp
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= OPTIMIZED JAVASCRIPT ================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const videos = document.querySelectorAll('video');
+            
+            let globalAudioEnabled = false; 
+            let currentlyUnmutedVideo = null; 
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '50px', 
+                threshold: 0.5 
+            };
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    
+                    if (entry.isIntersecting) {
+                        if (globalAudioEnabled) {
+                            if (currentlyUnmutedVideo && currentlyUnmutedVideo !== video) {
+                                currentlyUnmutedVideo.muted = true; 
+                            }
+                            video.muted = false; 
+                            currentlyUnmutedVideo = video; 
+                        }
+
+                        const playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.log("Autoplay prevented:", error);
+                            });
+                        }
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, observerOptions);
+
+            videos.forEach(video => {
+                video.muted = true; 
+                videoObserver.observe(video);
+
+                video.addEventListener('click', () => {
+                    if (video.muted) {
+                        globalAudioEnabled = true;
+                        if (currentlyUnmutedVideo && currentlyUnmutedVideo !== video) {
+                            currentlyUnmutedVideo.muted = true;
+                        }
+                        video.muted = false;
+                        currentlyUnmutedVideo = video;
+                    } else {
+                        globalAudioEnabled = false;
+                        video.muted = true;
+                        currentlyUnmutedVideo = null;
+                    }
+                });
+            });
+
+            // Tab Toggle Logic
+            const btnShort = document.getElementById('btn-short');
+            const btnLong = document.getElementById('btn-long');
+            const gridShort = document.getElementById('grid-short');
+            const gridLong = document.getElementById('grid-long');
+
+            const activeClasses = ['bg-white', 'text-primary', 'shadow-sm'];
+            const inactiveClasses = ['bg-transparent', 'text-secondary', 'hover:text-primary'];
+
+            function switchTab(activeBtn, inactiveBtn, showGrid, hideGrid) {
+                activeBtn.classList.remove(...inactiveClasses);
+                activeBtn.classList.add(...activeClasses);
+                inactiveBtn.classList.remove(...activeClasses);
+                inactiveBtn.classList.add(...inactiveClasses);
+                
+                activeBtn.setAttribute('aria-selected', 'true');
+                inactiveBtn.setAttribute('aria-selected', 'false');
+
+                hideGrid.classList.add('hidden');
+                hideGrid.classList.remove('fade-in');
+                
+                showGrid.classList.remove('hidden');
+                void showGrid.offsetWidth;
+                showGrid.classList.add('fade-in');
+            }
+
+            btnLong.addEventListener('click', () => switchTab(btnLong, btnShort, gridLong, gridShort));
+            btnShort.addEventListener('click', () => switchTab(btnShort, btnLong, gridShort, gridLong));
+
+            // FAQ Accordion Logic
+            const faqButtons = document.querySelectorAll('.faq-button');
+            
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    const answer = faqItem.querySelector('.faq-answer');
+                    const icon = button.querySelector('.faq-icon');
+                    const isExpanded = faqItem.classList.contains('expanded');
+
+                    // Close all other FAQs to keep it clean
+                    document.querySelectorAll('.faq-item.expanded').forEach(item => {
+                        if (item !== faqItem) {
+                            item.classList.remove('expanded');
+                            item.querySelector('.faq-answer').style.maxHeight = null;
+                            item.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current FAQ
+                    if (isExpanded) {
+                        faqItem.classList.remove('expanded');
+                        answer.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        faqItem.classList.add('expanded');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
