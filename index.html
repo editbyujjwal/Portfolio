@@ -3,11 +3,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ujjwal Kumar | Video Editor</title>
     <meta name="description" content="Clean edits that keep viewers watching. Portfolio of Ujjwal Kumar, Video Editor.">
     
-    <!-- Fonts: Clash Display Only (for premium cinematic look) -->
+    <!-- Fonts: Clash Display Only (Premium Cinematic Look) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet">
@@ -25,12 +25,12 @@
                         heading: ['Clash Display', 'sans-serif'],
                     },
                     colors: {
-                        background: '#0a0a0a', // Deep dark background
-                        card: '#121212',       // Slightly lighter dark for cards
-                        primary: '#ffffff',    // White text
-                        secondary: '#a1a1aa',  // Zinc 400 for muted text
-                        bordercolor: '#27272a',// Zinc 800 for borders
-                        accent: '#3b82f6',     // Blue accent
+                        background: '#0a0a0a', 
+                        card: '#121212',       
+                        primary: '#ffffff',    
+                        secondary: '#a1a1aa',  
+                        bordercolor: '#27272a',
+                        accent: '#3b82f6',     
                     }
                 }
             }
@@ -40,7 +40,7 @@
     <style>
         /* Custom Scrollbar - Dark theme */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: #0a0a0a;
@@ -53,11 +53,12 @@
             background: #52525b;
         }
 
-        /* Scroll Reveal Animations */
+        /* Scroll Reveal Animations - Optimized to prevent layout shift */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
         .reveal.active {
             opacity: 1;
@@ -68,10 +69,10 @@
         .tab-content {
             display: none;
             opacity: 0;
-            animation: fadeInTab 0.5s ease-out forwards;
         }
         .tab-content.active {
             display: grid;
+            animation: fadeInTab 0.4s ease-out forwards;
         }
         @keyframes fadeInTab {
             from { opacity: 0; transform: translateY(10px); }
@@ -80,7 +81,7 @@
 
         /* Glassmorphism utility for header */
         .glass {
-            background: rgba(10, 10, 10, 0.7);
+            background: rgba(10, 10, 10, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -92,54 +93,61 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
+        /* Stop horizontal overflow strictly */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
     </style>
 </head>
-<body class="bg-background text-primary font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+<body class="bg-background text-primary font-sans antialiased selection:bg-white/20 selection:text-white">
+
+    <!-- FIX: Background glow placed inside a fixed hidden container to prevent glitches & side scroll -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full bg-blue-500/10 blur-[80px] md:blur-[120px]"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full bg-purple-500/10 blur-[80px] md:blur-[100px]"></div>
+    </div>
 
     <!-- ================= HEADER SECTION ================= -->
     <header class="fixed top-0 z-50 w-full glass">
-        <div class="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="https://www.instagram.com/editbyujjwal/" target="_blank" rel="noopener noreferrer" class="font-heading text-[18px] md:text-[20px] font-normal tracking-wide text-primary hover:text-accent transition-colors duration-300">
+        <!-- FIX: Unified padding and max-width for perfect alignment -->
+        <div class="w-full max-w-[1100px] mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+            <a href="https://www.instagram.com/editbyujjwal/" target="_blank" rel="noopener noreferrer" class="font-heading text-[18px] md:text-[20px] font-normal tracking-wide text-primary hover:text-gray-300 transition-colors duration-300">
                 Ujjwal Kumar
             </a>
             
-            <!-- Contact Me Button -->
-            <a href="#contact" class="flex items-center justify-center px-4 md:px-6 py-2 rounded-full bg-white/10 border border-white/20 text-[12px] md:text-[14px] text-white font-medium hover:bg-white/20 transition-all duration-300">
+            <a href="#contact" class="flex items-center justify-center px-5 py-2 rounded-full bg-white/10 border border-white/20 text-[13px] md:text-[14px] text-white font-medium hover:bg-white/20 transition-all duration-300">
                 Contact Me
             </a>
         </div>
     </header>
 
-    <!-- Background glow effects (Subtle) -->
-    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] -z-10 pointer-events-none"></div>
-    <div class="absolute top-[20%] right-[-10%] w-[30%] h-[30%] rounded-full bg-purple-500/10 blur-[100px] -z-10 pointer-events-none"></div>
-
     <!-- Main Container -->
-    <main class="max-w-[1100px] mx-auto px-6 w-full flex flex-col items-center pt-[120px]">
+    <main class="w-full max-w-[1100px] mx-auto px-4 md:px-8 flex flex-col items-center pt-[100px] md:pt-[120px]">
 
         <!-- ================= HERO SECTION ================= -->
-        <section class="w-full flex flex-col items-center text-center mt-[40px] mb-[120px] reveal">
+        <section class="w-full flex flex-col items-center text-center mt-[30px] md:mt-[40px] mb-[100px] md:mb-[120px] reveal">
             
-            <!-- Profile Image with glowing border effect (Original Colors, NO Filter) -->
-            <div class="relative mb-8 group">
+            <!-- Profile Image (Original Colors, NO Filter) -->
+            <div class="relative mb-6 md:mb-8 group">
                 <div class="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-700 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
-                <div class="relative w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden border-[2px] border-bordercolor bg-card">
+                <div class="relative w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden border-[2px] border-bordercolor bg-card">
                     <img src="https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/pciihiwsj97gv1gocdna" alt="Ujjwal Kumar" loading="lazy" class="w-full h-full object-cover transition-all duration-500 hover:scale-105">
                 </div>
             </div>
 
-            <!-- Adjusted sizes to prevent awkward line breaks -->
-            <h1 class="text-[36px] md:text-[64px] font-heading font-semibold leading-[1.1] mb-6 max-w-[900px] tracking-tight">
-                Clear, simple edits <br>
+            <h1 class="text-[34px] md:text-[64px] font-heading font-semibold leading-[1.1] mb-5 md:mb-6 max-w-[900px] tracking-tight">
+                Clear, simple edits <br class="hidden sm:block">
                 <span class="text-gradient font-light">focused on your content.</span>
             </h1>
 
-            <p class="text-[15px] md:text-[18px] text-secondary font-light max-w-[600px] mb-10 leading-relaxed">
+            <p class="text-[15px] md:text-[18px] text-secondary font-light max-w-[600px] mb-8 md:mb-10 leading-relaxed px-2">
                 Good editing helps your audience follow what you're saying, instead of pulling attention away from it.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="#work" class="bg-primary text-background px-8 py-3.5 rounded-full text-[15px] font-medium hover:bg-gray-200 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] text-center">
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0">
+                <a href="#work" class="bg-primary text-background px-8 py-3.5 rounded-full text-[15px] font-medium hover:bg-gray-200 hover:scale-[1.02] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] text-center">
                     View My Work
                 </a>
                 <a href="#contact" class="bg-transparent border border-bordercolor text-primary px-8 py-3.5 rounded-full text-[15px] font-medium hover:bg-white/5 hover:border-white/20 transition-all duration-300 text-center">
@@ -150,14 +158,14 @@
         </section>
 
         <!-- ================= WORK SECTION ================= -->
-        <section id="work" class="w-full flex flex-col items-center mb-[120px] scroll-mt-[100px] reveal">
+        <section id="work" class="w-full flex flex-col items-center mb-[100px] md:mb-[120px] scroll-mt-[100px] reveal">
             
-            <h2 class="text-[32px] md:text-[40px] font-heading font-semibold mb-[40px] text-primary">
+            <h2 class="text-[28px] md:text-[40px] font-heading font-semibold mb-[30px] md:mb-[40px] text-primary">
                 Selected Work
             </h2>
 
             <!-- Modern Tab Toggle -->
-            <div class="flex p-1.5 bg-card border border-bordercolor rounded-full mb-[50px]" role="tablist">
+            <div class="flex p-1.5 bg-card border border-bordercolor rounded-full mb-[40px] md:mb-[50px]" role="tablist">
                 <button id="btn-short" role="tab" aria-selected="true" class="px-5 md:px-7 py-2 md:py-2.5 rounded-full bg-white/10 text-primary shadow-sm text-[13px] md:text-[14px] font-medium transition-all focus:outline-none">
                     Short Form
                 </button>
@@ -166,36 +174,32 @@
                 </button>
             </div>
 
-            <!-- Short Form Video Grid (Lag Fixed: No Autoplay) -->
-            <div id="grid-short" class="w-full gap-[24px] tab-content active md:grid-cols-2 lg:grid-cols-3" role="tabpanel">
+            <!-- Short Form Video Grid -->
+            <!-- FIX: gap-4 for mobile, gap-6 for desktop. Perfect alignment inside max-w container -->
+            <div id="grid-short" class="w-full gap-4 md:gap-6 tab-content active grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" role="tabpanel">
                 
-                <!-- Video Card 1 -->
-                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
+                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[20px] md:rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
                     <video src="1.mp4" preload="metadata" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.05]"></video>
-                    <!-- Play icon overlay (visible before play) -->
                     <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <svg class="w-12 h-12 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
 
-                <!-- Video Card 2 -->
-                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
+                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[20px] md:rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
                     <video src="2.mp4" preload="metadata" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.05]"></video>
                     <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <svg class="w-12 h-12 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
 
-                <!-- Video Card 3 -->
-                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
+                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[20px] md:rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
                     <video src="3.mp4" preload="metadata" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.05]"></video>
                     <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <svg class="w-12 h-12 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
 
-                <!-- Video Card 4 -->
-                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg lg:col-start-2">
+                <div class="video-container relative w-full aspect-[9/16] bg-card rounded-[20px] md:rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg lg:col-start-2">
                     <video src="4.mp4" preload="metadata" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.05]"></video>
                     <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <svg class="w-12 h-12 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -205,18 +209,16 @@
             </div>
 
             <!-- Long Form Video Grid -->
-            <div id="grid-long" class="w-full gap-[24px] tab-content md:grid-cols-2" role="tabpanel">
+            <div id="grid-long" class="w-full gap-4 md:gap-6 tab-content grid-cols-1 md:grid-cols-2" role="tabpanel">
                 
-                <!-- Long Form Video Card 1 -->
-                <div class="video-container relative w-full aspect-video bg-card rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
+                <div class="video-container relative w-full aspect-video bg-card rounded-[20px] md:rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
                     <video src="long1.mp4" preload="metadata" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.05]"></video>
                     <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <svg class="w-14 h-14 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
 
-                <!-- Long Form Video Card 2 -->
-                <div class="video-container relative w-full aspect-video bg-card rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
+                <div class="video-container relative w-full aspect-video bg-card rounded-[20px] md:rounded-[24px] overflow-hidden group cursor-pointer border border-bordercolor hover:border-white/20 transition-all duration-500 shadow-lg">
                     <video src="long2.mp4" preload="metadata" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.05]"></video>
                     <div class="play-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         <svg class="w-14 h-14 text-white/80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -228,43 +230,43 @@
         </section>
 
         <!-- ================= SERVICES SECTION ================= -->
-        <section id="services" class="w-full flex flex-col items-center mb-[120px] scroll-mt-[100px] reveal">
+        <section id="services" class="w-full flex flex-col items-center mb-[100px] md:mb-[120px] scroll-mt-[100px] reveal">
             
-            <h2 class="text-[32px] md:text-[40px] font-heading font-semibold mb-[50px] text-primary">
+            <h2 class="text-[28px] md:text-[40px] font-heading font-semibold mb-[30px] md:mb-[50px] text-primary">
                 What I Do
             </h2>
 
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 
-                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left group">
-                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[20px] md:rounded-[24px] p-7 md:p-10 flex flex-col items-start text-left group">
+                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-5 md:mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                     </div>
-                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-3">Short Form Content</h3>
+                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-2 md:mb-3">Short Form Content</h3>
                     <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light">Fast-paced edits designed for short-form content, with clear pacing, captions, and motion that keep viewers engaged.</p>
                 </div>
 
-                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left group">
-                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[20px] md:rounded-[24px] p-7 md:p-10 flex flex-col items-start text-left group">
+                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-5 md:mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                     </div>
-                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-3">Motion Graphics</h3>
+                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-2 md:mb-3">Motion Graphics</h3>
                     <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light">Simple motion graphics and animated captions that support the message and make content easier to follow.</p>
                 </div>
 
-                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left group">
-                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[20px] md:rounded-[24px] p-7 md:p-10 flex flex-col items-start text-left group">
+                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-5 md:mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
                     </div>
-                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-3">YouTube Videos</h3>
+                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-2 md:mb-3">YouTube Videos</h3>
                     <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light">Structured edits that improve clarity, pacing, and viewer retention throughout longer videos.</p>
                 </div>
 
-                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[24px] p-8 md:p-10 flex flex-col items-start text-left group">
-                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                <div class="bg-card border border-bordercolor hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300 rounded-[20px] md:rounded-[24px] p-7 md:p-10 flex flex-col items-start text-left group">
+                    <div class="w-12 h-12 rounded-[14px] bg-white/5 border border-white/10 flex items-center justify-center mb-5 md:mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0-2.5.5.5 0 0 1 .5-.5h13"/></svg>
                     </div>
-                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-3">Educational Content</h3>
+                    <h3 class="text-[18px] md:text-[20px] font-heading font-medium text-primary mb-2 md:mb-3">Educational Content</h3>
                     <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light">Clean editing that helps viewers focus on the information without unnecessary distractions.</p>
                 </div>
 
@@ -273,59 +275,56 @@
         </section>
 
         <!-- ================= Q&A SECTION ================= -->
-        <section id="faq" class="w-full max-w-[800px] flex flex-col items-center mb-[120px] scroll-mt-[100px] reveal">
+        <section id="faq" class="w-full max-w-[800px] flex flex-col items-center mb-[100px] md:mb-[120px] scroll-mt-[100px] reveal">
             
-            <h2 class="text-[32px] md:text-[40px] font-heading font-semibold mb-[40px] text-primary">
+            <h2 class="text-[28px] md:text-[40px] font-heading font-semibold mb-[30px] md:mb-[40px] text-primary">
                 Q&A
             </h2>
 
-            <div class="w-full flex flex-col gap-4">
+            <div class="w-full flex flex-col gap-3 md:gap-4">
                 
-                <!-- Q1 -->
-                <div class="faq-item bg-card border border-bordercolor rounded-[20px] overflow-hidden w-full transition-all duration-300 hover:border-white/10">
-                    <button class="faq-button w-full text-left p-6 md:p-7 flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="faq-item bg-card border border-bordercolor rounded-[16px] md:rounded-[20px] overflow-hidden w-full transition-all duration-300 hover:border-white/10">
+                    <button class="faq-button w-full text-left p-5 md:p-7 flex justify-between items-center focus:outline-none cursor-pointer">
                         <h3 class="text-[15px] md:text-[17px] font-medium text-primary pr-4">What's your editing style?</h3>
                         <span class="faq-icon text-secondary transition-transform duration-300 flex-shrink-0">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </span>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="px-6 md:px-7 pb-6 md:pb-7 pt-0 border-t border-bordercolor/50 mt-2">
-                            <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light pt-4">
+                        <div class="px-5 md:px-7 pb-5 md:pb-7 pt-0 border-t border-bordercolor/50 mt-1 md:mt-2">
+                            <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light pt-3 md:pt-4">
                                 I focus on clean, simple edits that make content easier to follow. Every cut, caption, and visual element is added with a purpose, helping the message stay clear, engaging, and easy to understand.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Q2 -->
-                <div class="faq-item bg-card border border-bordercolor rounded-[20px] overflow-hidden w-full transition-all duration-300 hover:border-white/10">
-                    <button class="faq-button w-full text-left p-6 md:p-7 flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="faq-item bg-card border border-bordercolor rounded-[16px] md:rounded-[20px] overflow-hidden w-full transition-all duration-300 hover:border-white/10">
+                    <button class="faq-button w-full text-left p-5 md:p-7 flex justify-between items-center focus:outline-none cursor-pointer">
                         <h3 class="text-[15px] md:text-[17px] font-medium text-primary pr-4">Can you show similar work you've done before?</h3>
                         <span class="faq-icon text-secondary transition-transform duration-300 flex-shrink-0">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </span>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="px-6 md:px-7 pb-6 md:pb-7 pt-0 border-t border-bordercolor/50 mt-2">
-                            <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light pt-4">
+                        <div class="px-5 md:px-7 pb-5 md:pb-7 pt-0 border-t border-bordercolor/50 mt-1 md:mt-2">
+                            <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light pt-3 md:pt-4">
                                 Yes. You can explore my selected work to get a better understanding of my editing style and the type of content I work on.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Q3 -->
-                <div class="faq-item bg-card border border-bordercolor rounded-[20px] overflow-hidden w-full transition-all duration-300 hover:border-white/10">
-                    <button class="faq-button w-full text-left p-6 md:p-7 flex justify-between items-center focus:outline-none cursor-pointer">
+                <div class="faq-item bg-card border border-bordercolor rounded-[16px] md:rounded-[20px] overflow-hidden w-full transition-all duration-300 hover:border-white/10">
+                    <button class="faq-button w-full text-left p-5 md:p-7 flex justify-between items-center focus:outline-none cursor-pointer">
                         <h3 class="text-[15px] md:text-[17px] font-medium text-primary pr-4">What's your turnaround time?</h3>
                         <span class="faq-icon text-secondary transition-transform duration-300 flex-shrink-0">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </span>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="px-6 md:px-7 pb-6 md:pb-7 pt-0 border-t border-bordercolor/50 mt-2">
-                            <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light pt-4">
+                        <div class="px-5 md:px-7 pb-5 md:pb-7 pt-0 border-t border-bordercolor/50 mt-1 md:mt-2">
+                            <p class="text-[14px] md:text-[15px] text-secondary leading-relaxed font-light pt-3 md:pt-4">
                                 Turnaround time depends on the scope, length, and complexity of the project. Once I review the requirements, I'll provide a clear delivery timeline.
                             </p>
                         </div>
@@ -337,25 +336,25 @@
         </section>
 
         <!-- ================= CONTACT SECTION ================= -->
-        <section id="contact" class="w-full max-w-[800px] bg-card border border-bordercolor rounded-[32px] p-[50px] md:p-[80px] flex flex-col items-center text-center mb-[100px] scroll-mt-[100px] relative overflow-hidden reveal">
+        <section id="contact" class="w-full max-w-[800px] bg-card border border-bordercolor rounded-[24px] md:rounded-[32px] p-[40px] md:p-[80px] flex flex-col items-center text-center mb-[80px] md:mb-[100px] scroll-mt-[100px] relative overflow-hidden reveal">
             
             <!-- Glow effect for contact card -->
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[100px] bg-accent/10 blur-[50px] pointer-events-none"></div>
 
-            <h2 class="text-[32px] md:text-[36px] font-heading font-semibold mb-4 text-primary relative z-10">
+            <h2 class="text-[28px] md:text-[36px] font-heading font-semibold mb-3 md:mb-4 text-primary relative z-10">
                 Work with me
             </h2>
             
-            <p class="text-[15px] md:text-[16px] text-secondary font-light mb-10 max-w-[450px] relative z-10">
+            <p class="text-[14px] md:text-[16px] text-secondary font-light mb-8 md:mb-10 max-w-[450px] relative z-10">
                 Let’s build content that performs and engages your audience.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-10">
-                <a href="mailto:editbyujjwal18@gmail.com" class="bg-primary text-background px-10 py-4 rounded-full text-[15px] font-medium hover:bg-gray-200 transition-all duration-300 focus:outline-none w-full sm:w-auto">
+                <a href="mailto:editbyujjwal18@gmail.com" class="bg-primary text-background px-8 md:px-10 py-3.5 md:py-4 rounded-full text-[14px] md:text-[15px] font-medium hover:bg-gray-200 transition-all duration-300 focus:outline-none w-full sm:w-auto">
                     Email Me
                 </a>
-                <a href="https://wa.me/9162549229" target="_blank" rel="noopener noreferrer" class="bg-transparent border border-bordercolor text-primary px-10 py-4 rounded-full text-[15px] font-medium hover:bg-white/5 transition-all duration-300 focus:outline-none w-full sm:w-auto flex justify-center items-center gap-2">
-                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <a href="https://wa.me/9162549229" target="_blank" rel="noopener noreferrer" class="bg-transparent border border-bordercolor text-primary px-8 md:px-10 py-3.5 md:py-4 rounded-full text-[14px] md:text-[15px] font-medium hover:bg-white/5 transition-all duration-300 focus:outline-none w-full sm:w-auto flex justify-center items-center gap-2">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                     WhatsApp
                 </a>
             </div>
@@ -365,7 +364,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full py-6 border-t border-bordercolor/50 text-center">
+    <footer class="w-full py-6 border-t border-bordercolor/50 text-center relative z-10">
         <p class="text-[13px] text-secondary font-light">© 2024 Ujjwal Kumar. All rights reserved.</p>
     </footer>
 
@@ -477,7 +476,7 @@
                 const windowHeight = window.innerHeight;
                 reveals.forEach(reveal => {
                     const revealTop = reveal.getBoundingClientRect().top;
-                    const revealPoint = 100;
+                    const revealPoint = 100; // Trigger point
 
                     if (revealTop < windowHeight - revealPoint) {
                         reveal.classList.add('active');
@@ -486,7 +485,8 @@
             }
 
             window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
+            // Add a small delay for the initial load to ensure layout is ready
+            setTimeout(revealOnScroll, 100);
         });
     </script>
 </body>
