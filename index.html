@@ -5,437 +5,472 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ujjwal Kumar — Video Editor Portfolio</title>
 <meta name="description" content="Clear, simple video edits for creators and brands. Short form, long form, motion graphics and captions by Ujjwal Kumar." />
+<meta property="og:title" content="Ujjwal Kumar — Video Editor Portfolio" />
+<meta property="og:description" content="Clear, simple video edits for creators and brands. Short form, long form, motion graphics and captions." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Inter+Tight:wght@400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
 <style>
-:root {
-  --bg: #f3f3f1; --card: #ffffff; --fg: #16161a; --muted: #6f6f76;
-  --hairline: rgba(22,22,26,.09); --radius: 1.5rem;
-  --shadow-soft: 0 1px 2px rgba(22,22,26,.05), 0 8px 24px rgba(22,22,26,.05);
-  --shadow-lift: 0 2px 4px rgba(22,22,26,.06), 0 20px 48px rgba(22,22,26,.10);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { background:var(--bg); color:var(--fg); font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased; }
-img { display:block; }
-a { text-decoration:none; color:inherit; }
-button { font:inherit; background:none; border:none; cursor:pointer; color:inherit; }
-.font-display { font-family:Georgia, "Times New Roman", serif; }
-.label-mono { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
-.container { max-width:1180px; margin:0 auto; padding:0 16px; }
-@media (min-width:768px) { .container { padding:0 32px; } }
+  :root {
+    --radius: 1.5rem;
+    --background: #f3f4f6;
+    --foreground: #26272c;
+    --card: #fdfdfd;
+    --muted: #eceef1;
+    --muted-foreground: #8b8c94;
+    --hairline: #e6e7ea;
+    --soft: 0 1px 2px rgba(38,39,44,.04), 0 12px 30px -18px rgba(38,39,44,.22);
+    --lift: 0 2px 6px rgba(38,39,44,.05), 0 34px 70px -30px rgba(38,39,44,.32);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; background: none; border: none; }
+  img, video { display: block; }
 
-/* header */
-.site-header { position:sticky; top:0; z-index:50; padding:16px 16px 0; }
-@media (min-width:768px) { .site-header { padding:16px 32px 0; } }
-.nav { max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; border:1px solid var(--hairline); background:rgba(255,255,255,.8); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-radius:999px; padding:10px 16px; box-shadow:var(--shadow-soft); }
-@media (min-width:768px) { .nav { padding:10px 24px; } }
-.nav-icons { display:flex; align-items:center; gap:10px; }
-.nav-icons a { color:var(--muted); transition:color .2s; display:flex; }
-.nav-icons a:hover { color:var(--fg); }
-.nav-links { display:none; align-items:center; gap:28px; }
-.nav-links a { font-size:14px; color:var(--muted); transition:color .2s; }
-.nav-links a:hover { color:var(--fg); }
-@media (min-width:768px) { .nav-links { display:flex; } }
-.btn-primary { display:inline-block; border-radius:999px; background:var(--fg); color:#fff; font-size:13px; font-weight:500; padding:10px 20px; transition:opacity .2s; }
-.btn-primary:hover { opacity:.85; }
+  .label-mono {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  .soft-card {
+    background: linear-gradient(180deg, var(--card), #e9ebef);
+    border: 1px solid rgba(38,39,44,.06);
+    border-radius: var(--radius);
+    box-shadow: var(--soft);
+  }
+  .lift-card {
+    background: linear-gradient(180deg, var(--card), #e4e6ea);
+    border: 1px solid rgba(38,39,44,.07);
+    border-radius: var(--radius);
+    box-shadow: var(--lift);
+  }
+  .dot-field {
+    background-image:
+      linear-gradient(to right, rgba(38,39,44,.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(38,39,44,.06) 1px, transparent 1px);
+    background-size: 68px 68px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 20%, transparent 80%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 20%, transparent 80%);
+  }
 
-/* hero */
-.hero { position:relative; padding:64px 0 24px; }
-@media (min-width:768px) { .hero { padding-top:96px; } }
-.dot-field { position:absolute; left:0; right:0; top:-96px; height:520px; pointer-events:none;
-  background-image:radial-gradient(rgba(22,22,26,.13) 1px, transparent 1px); background-size:22px 22px;
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
-  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); }
-.hero-inner { position:relative; text-align:center; }
-.pill { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--hairline); background:var(--card); border-radius:999px; padding:6px 14px; box-shadow:var(--shadow-soft); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
-.dot { position:relative; width:6px; height:6px; border-radius:50%; background:#22c55e; }
-.dot::after { content:""; position:absolute; inset:0; border-radius:50%; background:#22c55e; animation:wave 2s ease-out infinite; }
-@keyframes wave { 0% { transform:scale(1); opacity:.7; } 100% { transform:scale(3); opacity:0; } }
-h1 { margin:28px auto 0; max-width:880px; font-family:Georgia,"Times New Roman",serif; font-size:40px; font-weight:500; line-height:1.06; letter-spacing:-.03em; }
-h1 .dim { color:rgba(111,111,118,.7); }
-@media (min-width:768px) { h1 { font-size:68px; } }
-.hero-sub { margin:24px auto 0; max-width:520px; font-size:15px; line-height:1.7; color:var(--muted); }
-@media (min-width:768px) { .hero-sub { font-size:16px; } }
-.hero-btns { margin-top:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
-@media (min-width:640px) { .hero-btns { flex-direction:row; } }
-.btn-hero { width:100%; text-align:center; border-radius:999px; padding:14px 28px; font-size:14px; font-weight:500; transition:all .2s; }
-@media (min-width:640px) { .btn-hero { width:auto; } }
-.btn-hero.primary { background:var(--fg); color:#fff; box-shadow:var(--shadow-lift); }
-.btn-hero.primary:hover { opacity:.85; }
-.btn-hero.ghost { border:1px solid var(--hairline); background:var(--card); box-shadow:var(--shadow-soft); }
-.btn-hero.ghost:hover { background:#eee; }
+  /* header */
+  header { position: sticky; top: 0; z-index: 50; padding: 1rem 1rem 0; }
+  .nav {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(253,253,253,.8);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: .625rem 1rem;
+    box-shadow: var(--soft);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  }
+  .brand { font-family: "Manrope", sans-serif; font-size: 15px; font-weight: 500; letter-spacing: -.02em; }
+  .nav-links { display: none; align-items: center; gap: 1.75rem; }
+  .nav-links a { font-size: 14px; color: var(--muted-foreground); transition: color .2s; }
+  .nav-links a:hover { color: var(--foreground); }
+  .nav-icons { display: flex; align-items: center; gap: .625rem; }
+  .nav-icons a { color: var(--muted-foreground); display: flex; transition: color .2s; }
+  .nav-icons a:hover { color: var(--foreground); }
 
-.soft-card { background:var(--card); border:1px solid var(--hairline); border-radius:var(--radius); box-shadow:var(--shadow-soft); }
-.profile-card { position:relative; margin:64px auto 0; max-width:576px; padding:28px; }
-.profile-head { display:flex; align-items:center; gap:16px; }
-.profile-head img { width:56px; height:56px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 1px var(--hairline); }
-.profile-name { margin-top:24px; font-family:Georgia,"Times New Roman",serif; font-size:26px; font-weight:500; letter-spacing:-.01em; }
-.profile-bio { margin-top:12px; font-size:14px; line-height:1.7; color:var(--muted); }
-.chips { margin-top:28px; display:flex; flex-wrap:wrap; gap:8px; }
-.chip { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(22,22,26,.7); border:1px solid var(--hairline); background:var(--card); border-radius:999px; padding:6px 12px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 0 1rem; }
 
-/* work */
-section { scroll-margin-top:112px; padding-top:96px; }
-.work-head { display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center; }
-.tabs { display:inline-flex; border:1px solid var(--hairline); background:var(--card); border-radius:999px; padding:4px; box-shadow:var(--shadow-soft); }
-.tab { border-radius:999px; padding:8px 20px; font-size:13px; font-weight:500; color:var(--muted); transition:all .2s; }
-.tab:hover { color:var(--fg); }
-.tab.active { background:var(--fg); color:#fff; }
-.work-grid { margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:40px 16px; }
-@media (min-width:768px) { .work-grid { gap:56px 24px; } }
-.work-media { position:relative; overflow:hidden; border-radius:calc(var(--radius) - .5rem); background:#e7e7e4; transition:box-shadow .3s; }
-.work-card:hover .work-media { box-shadow:var(--shadow-soft); }
-.work-media img { width:100%; height:100%; object-fit:cover; transition:transform .7s ease-out; }
-.work-card:hover .work-media img { transform:scale(1.04); }
-.work-media[data-video] { cursor:pointer; }
-.work-media video { width:100%; height:100%; object-fit:cover; display:block; background:#000; }
-.play-btn { position:absolute; inset:0; margin:auto; width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:9999px; border:1px solid rgba(255,255,255,.3); background:rgba(0,0,0,.35); color:#fff; backdrop-filter:blur(8px); cursor:pointer; transition:transform .3s; padding:0; }
-.work-card:hover .play-btn { transform:scale(1.1); }
-@media (min-width:768px){ .play-btn { width:56px; height:56px; } }
-.work-cap { margin-top:14px; display:flex; align-items:center; justify-content:space-between; padding:0 2px; }
-.work-label { font-size:13px; font-weight:500; letter-spacing:-.01em; }
-.work-meta { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10px; color:var(--muted); }
-#grid-long { display:none; }
+  /* hero */
+  .hero { position: relative; padding: 4rem 0 1.5rem; }
+  .hero .dot-field { position: absolute; left: 0; right: 0; top: -6rem; height: 520px; pointer-events: none; }
+  .hero-inner { position: relative; text-align: center; }
+  .avatar {
+    width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+    margin: 0 auto 2rem; box-shadow: 0 0 0 1px var(--hairline), var(--soft);
+  }
+  h1 {
+    margin: 0 auto; max-width: 880px;
+    font-family: "Manrope", sans-serif; font-size: 40px; font-weight: 500;
+    line-height: 1.06; letter-spacing: -.03em;
+  }
+  h1 .dim { color: rgba(139,140,148,.7); }
+  .hero-sub { margin: 1.5rem auto 0; max-width: 520px; font-size: 15px; line-height: 1.625; color: var(--muted-foreground); }
+  .hero-btns { margin-top: 2.25rem; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+  .btn-hero { width: 100%; text-align: center; border-radius: 999px; padding: .875rem 1.75rem; font-size: 14px; font-weight: 500; }
+  .btn-hero.dark { background: var(--foreground); color: #fcfcfc; box-shadow: var(--lift); transition: opacity .2s; }
+  .btn-hero.dark:hover { opacity: .85; }
+  .btn-hero.light { background: var(--card); border: 1px solid var(--hairline); box-shadow: var(--soft); transition: background .2s; }
+  .btn-hero.light:hover { background: var(--muted); }
 
-/* services */
-.svc-head { display:grid; gap:32px; }
-@media (min-width:768px) { .svc-head { grid-template-columns:1fr 1fr; align-items:end; } }
-h2 { margin-top:20px; font-family:Georgia,"Times New Roman",serif; font-size:32px; font-weight:500; line-height:1.1; letter-spacing:-.03em; }
-@media (min-width:768px) { h2 { font-size:46px; } }
-.svc-sub { max-width:440px; font-size:15px; line-height:1.7; color:var(--muted); }
-@media (min-width:768px) { .svc-sub { justify-self:end; } }
-.svc-grid { margin-top:48px; display:grid; gap:20px; }
-@media (min-width:640px) { .svc-grid { grid-template-columns:1fr 1fr; } }
-@media (min-width:1024px) { .svc-grid { grid-template-columns:1fr 1fr 1fr; } }
-.svc { position:relative; overflow:hidden; background:var(--card); border:1px solid var(--hairline); border-radius:var(--radius); box-shadow:var(--shadow-soft); padding:32px; transition:box-shadow .3s; }
-.svc:hover { box-shadow:var(--shadow-lift); }
-.svc.lift { box-shadow:var(--shadow-lift); }
-@media (min-width:768px) { .svc.lift { margin:-16px 0; } }
-.ghost-num { position:absolute; right:20px; top:8px; font-size:64px; line-height:1; font-family:Georgia,serif; color:rgba(22,22,26,.07); }
-.svc h3 { margin-top:56px; font-family:Georgia,"Times New Roman",serif; font-size:22px; font-weight:500; letter-spacing:-.01em; }
-.svc p { margin-top:12px; font-size:14px; line-height:1.7; color:var(--muted); }
+  section { scroll-margin-top: 7rem; padding-top: 6rem; }
 
-/* faq */
-.faq-head { display:grid; gap:32px; }
-@media (min-width:768px) { .faq-head { grid-template-columns:.8fr 1.2fr; } }
-.faq-list { display:flex; flex-direction:column; gap:12px; }
-.faq-item { background:var(--card); border:1px solid var(--hairline); border-radius:var(--radius); box-shadow:var(--shadow-soft); overflow:hidden; transition:box-shadow .3s; }
-.faq-item.open { box-shadow:var(--shadow-lift); }
-.faq-q { width:100%; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:20px 24px; text-align:left; }
-.faq-q span:first-child { font-size:16px; }
-.faq-plus { flex-shrink:0; font-size:18px; color:var(--muted); transition:transform .3s; }
-.faq-item.open .faq-plus { transform:rotate(45deg); }
-.faq-a { display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s; }
-.faq-item.open .faq-a { grid-template-rows:1fr; }
-.faq-a-inner { overflow:hidden; }
-.faq-a-inner p { padding:0 24px 24px; font-size:14px; line-height:1.7; color:var(--muted); }
+  /* work */
+  .work-head { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; text-align: center; }
+  .tabs { display: inline-flex; border: 1px solid var(--hairline); background: var(--card); border-radius: 999px; padding: .25rem; box-shadow: var(--soft); }
+  .tabs button { border-radius: 999px; padding: .5rem 1.25rem; font-size: 13px; font-weight: 500; color: var(--muted-foreground); transition: color .2s, background .2s; }
+  .tabs button:hover { color: var(--foreground); }
+  .tabs button.active { background: var(--foreground); color: #fcfcfc; }
 
-/* contact */
-.contact-card { position:relative; overflow:hidden; background:var(--card); border:1px solid var(--hairline); border-radius:var(--radius); box-shadow:var(--shadow-lift); padding:64px 24px; text-align:center; }
-@media (min-width:768px) { .contact-card { padding:96px 40px; } }
-.contact-card .dot-field { inset:0; top:0; height:100%; }
-.contact-inner { position:relative; }
-.contact-inner h2 { max-width:640px; margin:24px auto 0; font-size:34px; }
-@media (min-width:768px) { .contact-inner h2 { font-size:56px; } }
-.contact-inner h2 .dim { color:rgba(111,111,118,.7); }
+  .work-grid { margin-top: 3rem; display: grid; column-gap: 1rem; row-gap: 2.5rem; }
+  .work-grid.reels { grid-template-columns: repeat(2, 1fr); }
+  .work-grid.longs { grid-template-columns: 1fr; max-width: 980px; margin-left: auto; margin-right: auto; }
+  .work-grid[hidden] { display: none; }
 
-footer { margin-top:64px; display:flex; flex-direction:column; gap:12px; border-top:1px solid var(--hairline); padding:32px 0; }
-@media (min-width:640px) { footer { flex-direction:row; align-items:center; justify-content:space-between; } }
-footer a:hover { color:var(--fg); }
+  figure { position: relative; }
+  .frame {
+    position: relative; overflow: hidden; background: var(--muted);
+    border-radius: calc(var(--radius) - .5rem);
+    transition: box-shadow .3s; cursor: pointer;
+  }
+  figure:hover .frame { box-shadow: var(--soft); }
+  .frame img, .frame video { width: 100%; height: 100%; object-fit: cover; }
+  .frame.reel { aspect-ratio: 9/16; }
+  .frame.wide { aspect-ratio: 16/9; }
+  .frame img { transition: transform .7s ease-out; }
+  figure:hover .frame img { transform: scale(1.04); }
+  .play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .play-btn span {
+    display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3); background: rgba(0,0,0,.35);
+    color: #fff; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: transform .3s;
+  }
+  figure:hover .play-btn span { transform: scale(1.1); }
+  figcaption { margin-top: .875rem; display: flex; align-items: center; justify-content: space-between; padding: 0 .125rem; }
+  figcaption .lbl { font-size: 13px; font-weight: 500; letter-spacing: -.01em; }
+  figcaption .meta { font-family: "DM Mono", monospace; font-size: 10px; color: var(--muted-foreground); }
+
+  /* services */
+  .services-head { display: grid; gap: 2rem; }
+  .services-head h2, .faq-head h2 { margin-top: 1.25rem; font-family: "Manrope", sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; letter-spacing: -.03em; }
+  .services-head p { max-width: 440px; font-size: 15px; line-height: 1.625; color: var(--muted-foreground); }
+  .services-grid { margin-top: 3rem; display: grid; gap: 1.25rem; }
+  .service-card { position: relative; overflow: hidden; padding: 2rem; transition: box-shadow .3s; }
+  .service-card:hover { box-shadow: var(--lift); }
+  .ghost-num {
+    position: absolute; right: 1.75rem; top: 1.5rem; font-size: 48px; line-height: 1;
+    font-family: "Manrope", sans-serif; font-weight: 300; letter-spacing: -.04em;
+    color: rgba(38,39,44,.12);
+  }
+  .service-card h3 { margin-top: 4rem; font-family: "Manrope", sans-serif; font-size: 20px; font-weight: 500; line-height: 1.25; letter-spacing: -.025em; }
+  .service-card p { margin-top: .75rem; max-width: 420px; font-size: 14px; line-height: 1.625; color: var(--muted-foreground); }
+
+  /* faq */
+  .faq-wrap { display: grid; gap: 2rem; }
+  .faq-list { display: flex; flex-direction: column; gap: .75rem; }
+  .faq-item { overflow: hidden; }
+  .faq-item button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 1.5rem; text-align: left; }
+  .faq-item .q { font-size: 16px; }
+  .faq-item .plus { flex-shrink: 0; font-size: 18px; color: var(--muted-foreground); transition: transform .3s; }
+  .faq-item.open .plus { transform: rotate(45deg); }
+  .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s; }
+  .faq-item.open .faq-a { grid-template-rows: 1fr; }
+  .faq-a > div { overflow: hidden; }
+  .faq-a p { padding: 0 1.5rem 1.5rem; font-size: 14px; line-height: 1.625; color: var(--muted-foreground); }
+
+  /* contact */
+  .contact-card { position: relative; overflow: hidden; padding: 4rem 1.5rem; text-align: center; }
+  .contact-card .dot-field { position: absolute; inset: 0; pointer-events: none; }
+  .contact-inner { position: relative; }
+  .contact-inner h2 { margin: 1.5rem auto 0; max-width: 640px; font-family: "Manrope", sans-serif; font-size: 34px; font-weight: 500; line-height: 1.05; letter-spacing: -.03em; }
+  .contact-inner h2 .dim { color: rgba(139,140,148,.7); }
+  .contact-btns { margin-top: 2.25rem; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+  .page-end { height: 6rem; }
+
+  @media (min-width: 640px) {
+    .hero-btns, .contact-btns { flex-direction: row; justify-content: center; }
+    .btn-hero { width: auto; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 768px) {
+    header { padding: 1rem 2rem 0; }
+    .nav { padding: .625rem 1.5rem; }
+    .nav-links { display: flex; }
+    main { padding: 0 2rem; }
+    .hero { padding-top: 6rem; }
+    .avatar { width: 112px; height: 112px; }
+    h1 { font-size: 68px; }
+    .hero-sub { font-size: 16px; }
+    .work-grid { column-gap: 1.5rem; row-gap: 3.5rem; }
+    .work-grid.reels { grid-template-columns: repeat(3, 1fr); }
+    .work-grid.longs { grid-template-columns: repeat(2, 1fr); }
+    .services-head { grid-template-columns: 1fr 1fr; align-items: end; }
+    .services-head h2 { font-size: 46px; }
+    .services-head p { justify-self: end; }
+    .faq-head h2 { font-size: 42px; }
+    .faq-wrap { grid-template-columns: .8fr 1.2fr; }
+    .service-card { padding: 2.5rem; }
+    .ghost-num { font-size: 56px; }
+    .service-card h3 { margin-top: 5rem; font-size: 22px; }
+    .contact-card { padding: 6rem 2.5rem; }
+    .page-end { height: 8rem; }
+    .contact-inner h2 { font-size: 56px; }
+    .play-btn span { width: 56px; height: 56px; }
+  }
 </style>
 </head>
 <body>
 
-<header class="site-header">
+<header>
   <div class="nav">
-    <div class="nav-icons">
-      <a href="https://www.instagram.com/editbyujjwal" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-      </a>
-      <a href="mailto:editbyujjwal18@gmail.com" aria-label="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-      </a>
-      <a href="https://wa.me/919162549229" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-      </a>
-    </div>
+    <a href="#" class="brand">Ujjwal Kumar</a>
     <nav class="nav-links">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a href="#contact" class="btn-primary">Hire me</a>
+    <div class="nav-icons">
+      <a href="https://www.instagram.com/editbyujjwal" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      </a>
+      <a href="mailto:editbyujjwal18@gmail.com" aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <a href="https://wa.me/919162549229" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </a>
+    </div>
   </div>
 </header>
 
-<main class="container">
-
+<main>
+  <!-- HERO -->
   <section class="hero">
     <div class="dot-field"></div>
     <div class="hero-inner">
-      <span class="pill"><span class="dot"></span>Available for work</span>
+      <img class="avatar" src="images/profile-picture.jpg" alt="Ujjwal Kumar" width="224" height="224" />
       <h1>Clear, simple edits <span class="dim">focused on your content.</span></h1>
       <p class="hero-sub">Good editing should make your message easier to follow, not make people notice the editing.</p>
       <div class="hero-btns">
-        <a href="#work" class="btn-hero primary">View selected work</a>
-        <a href="#contact" class="btn-hero ghost">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="soft-card profile-card">
-      <div class="profile-head">
-        <img src="images/profile-picture.jpg" alt="Portrait of Ujjwal Kumar, video editor" width="80" height="80" loading="lazy" decoding="async" />
-        <span class="label-mono">Profile</span>
-      </div>
-      <p class="profile-name">Ujjwal Kumar</p>
-      <p class="profile-bio">Editing short &amp; long-form videos for creators and brands.</p>
-      <div class="chips">
-        <span class="chip">Short form</span>
-        <span class="chip">YouTube</span>
-        <span class="chip">Motion</span>
+        <a href="#work" class="btn-hero dark">View selected work</a>
+        <a href="#contact" class="btn-hero light">Get in touch</a>
       </div>
     </div>
   </section>
 
+  <!-- WORK -->
   <section id="work">
     <div class="work-head">
       <span class="label-mono">Selected work</span>
       <div class="tabs">
-        <button class="tab active" id="tab-short">Reels</button>
-        <button class="tab" id="tab-long">Long form</button>
+        <button class="active" data-tab="reels">Reels</button>
+        <button data-tab="longs">Long form</button>
       </div>
     </div>
-    <div class="work-grid" id="grid-short">
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:9/16;" data-video="videos/reel-1.mp4">
-          <img src="images/reel-1-thumbnail.jpg" alt="Talking head" loading="lazy" decoding="async" width="1080" height="1920" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+
+    <div class="work-grid reels" id="grid-reels">
+      <figure>
+        <div class="frame reel" data-video="videos/reel-1.mp4">
+          <img src="images/reel-1-thumbnail.jpg" alt="Talking head reel" loading="lazy" />
+          <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Talking head</span>
-          <span class="work-meta">01</span>
-        </figcaption>
+        <figcaption><span class="lbl">Talking head</span><span class="meta">01</span></figcaption>
       </figure>
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:9/16;" data-video="videos/reel-2.mp4">
-          <img src="images/reel-2-thumbnail.jpg" alt="Process reel" loading="lazy" decoding="async" width="1080" height="1920" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <figure>
+        <div class="frame reel" data-video="videos/reel-2.mp4">
+          <img src="images/reel-2-thumbnail.jpg" alt="Process reel" loading="lazy" />
+          <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Process reel</span>
-          <span class="work-meta">02</span>
-        </figcaption>
+        <figcaption><span class="lbl">Process reel</span><span class="meta">02</span></figcaption>
       </figure>
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:9/16;" data-video="videos/reel-3.mp4">
-          <img src="images/reel-3-thumbnail.jpg" alt="Podcast clip" loading="lazy" decoding="async" width="1080" height="1920" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <figure>
+        <div class="frame reel" data-video="videos/reel-3.mp4">
+          <img src="images/reel-3-thumbnail.jpg" alt="Podcast clip" loading="lazy" />
+          <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Podcast clip</span>
-          <span class="work-meta">03</span>
-        </figcaption>
+        <figcaption><span class="lbl">Podcast clip</span><span class="meta">03</span></figcaption>
       </figure>
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:9/16;" data-video="videos/reel-4.mp4">
-          <img src="images/reel-4-thumbnail.jpg" alt="Product spot" loading="lazy" decoding="async" width="1080" height="1920" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <figure>
+        <div class="frame reel" data-video="videos/reel-4.mp4">
+          <img src="images/reel-4-thumbnail.jpg" alt="Product spot" loading="lazy" />
+          <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Product spot</span>
-          <span class="work-meta">04</span>
-        </figcaption>
+        <figcaption><span class="lbl">Product spot</span><span class="meta">04</span></figcaption>
       </figure>
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:9/16;" data-video="videos/reel-5.mp4">
-          <img src="images/reel-5-thumbnail.jpg" alt="Storytelling" loading="lazy" decoding="async" width="1080" height="1920" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <figure>
+        <div class="frame reel" data-video="videos/reel-5.mp4">
+          <img src="images/reel-5-thumbnail.jpg" alt="Storytelling reel" loading="lazy" />
+          <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Storytelling</span>
-          <span class="work-meta">05</span>
-        </figcaption>
+        <figcaption><span class="lbl">Storytelling</span><span class="meta">05</span></figcaption>
       </figure>
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:9/16;" data-video="videos/reel-6.mp4">
-          <img src="images/reel-6-thumbnail.jpg" alt="Behind the scenes" loading="lazy" decoding="async" width="1080" height="1920" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <figure>
+        <div class="frame reel" data-video="videos/reel-6.mp4">
+          <img src="images/reel-6-thumbnail.jpg" alt="Behind the scenes reel" loading="lazy" />
+          <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Behind the scenes</span>
-          <span class="work-meta">06</span>
-        </figcaption>
+        <figcaption><span class="lbl">Behind the scenes</span><span class="meta">06</span></figcaption>
       </figure>
     </div>
-    <div class="work-grid" id="grid-long">
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:16/9;" data-video="videos/longform-1.mp4">
-          <img src="images/longform-1-thumbnail.jpg" alt="Documentary" loading="lazy" decoding="async" width="1920" height="1080" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+
+    <div class="work-grid longs" id="grid-longs" hidden>
+      <figure>
+        <div class="frame wide" data-video="videos/longform-1.mp4">
+          <img src="images/longform-1-thumbnail.jpg" alt="Documentary edit" loading="lazy" />
+          <span class="play-btn"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Documentary</span>
-          <span class="work-meta">Narrative flow</span>
-        </figcaption>
+        <figcaption><span class="lbl">Documentary</span><span class="meta">Narrative flow</span></figcaption>
       </figure>
-      <figure class="work-card">
-        <div class="work-media" style="aspect-ratio:16/9;" data-video="videos/longform-2.mp4">
-          <img src="images/longform-2-thumbnail.jpg" alt="Video essay" loading="lazy" decoding="async" width="1920" height="1080" />
-          <button class="play-btn" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+      <figure>
+        <div class="frame wide" data-video="videos/longform-2.mp4">
+          <img src="images/longform-2-thumbnail.jpg" alt="Video essay edit" loading="lazy" />
+          <span class="play-btn"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
-        <figcaption class="work-cap">
-          <span class="work-label">Video essay</span>
-          <span class="work-meta">Structured edit</span>
-        </figcaption>
+        <figcaption><span class="lbl">Video essay</span><span class="meta">Structured edit</span></figcaption>
       </figure>
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="services">
-    <div class="svc-head">
+    <div class="services-head">
       <div>
         <span class="label-mono">What I do</span>
-        <h2>Here&rsquo;s what I can help with</h2>
+        <h2>Here’s what I can help with</h2>
       </div>
-      <p class="svc-sub">I edit videos based on what the content needs — from clean cuts and captions to pacing and motion.</p>
+      <p>I edit videos based on what the content needs — from clean cuts and captions to pacing and motion.</p>
     </div>
-    <div class="svc-grid">
-        <article class="svc ">
-          <span class="ghost-num">01</span>
-          <h3>Short Form Content</h3>
-          <p>Fast-paced edits with clear pacing, captions, and motion that keep viewers watching to the end.</p>
-        </article>
-        <article class="svc lift">
-          <span class="ghost-num">02</span>
-          <h3>Motion Graphics</h3>
-          <p>Simple motion and animated captions that support the message instead of competing with it.</p>
-        </article>
-        <article class="svc ">
-          <span class="ghost-num">03</span>
-          <h3>YouTube Videos</h3>
-          <p>Structured long-form edits that improve clarity, pacing, and retention across the whole runtime.</p>
-        </article>
-        <article class="svc ">
-          <span class="ghost-num">04</span>
-          <h3>Custom Projects</h3>
-          <p>Social content, promos, or something else entirely — shaped around the goal of the project.</p>
-        </article>
+    <div class="services-grid">
+      <article class="soft-card service-card">
+        <span class="ghost-num">01</span>
+        <h3>Short Form Content</h3>
+        <p>Fast-paced edits with clear pacing, captions, and motion that keep viewers watching to the end.</p>
+      </article>
+      <article class="soft-card service-card">
+        <span class="ghost-num">02</span>
+        <h3>Motion Graphics</h3>
+        <p>Simple motion and animated captions that support the message instead of competing with it.</p>
+      </article>
+      <article class="soft-card service-card">
+        <span class="ghost-num">03</span>
+        <h3>YouTube Videos</h3>
+        <p>Structured long-form edits that improve clarity, pacing, and retention across the whole runtime.</p>
+      </article>
+      <article class="soft-card service-card">
+        <span class="ghost-num">04</span>
+        <h3>Custom Projects</h3>
+        <p>Social content, promos, or something else entirely — shaped around the goal of the project.</p>
+      </article>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq">
-    <div class="faq-head">
-      <div>
+    <div class="faq-wrap">
+      <div class="faq-head">
         <span class="label-mono">FAQ</span>
         <h2>A few things you might want to know</h2>
       </div>
       <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              <span>What's your editing style?</span><span class="faq-plus">+</span>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner"><p>I focus on clean, simple edits that make content easier to follow. Every cut, caption, and visual element is added with a purpose, helping the message stay clear and easy to understand.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              <span>Can you show similar work you've done before?</span><span class="faq-plus">+</span>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Yes. You can explore my selected work above to get a better understanding of my editing style and the type of content I work on.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              <span>What's your turnaround time?</span><span class="faq-plus">+</span>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Turnaround depends on the scope, length, and complexity of the project. Once I review the requirements, I'll provide a clear delivery timeline.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              <span>How many revisions do you offer?</span><span class="faq-plus">+</span>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner"><p>Unlimited revisions, so the final video aligns with your expectations and goals.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              <span>How do your edits help the content?</span><span class="faq-plus">+</span>
-            </button>
-            <div class="faq-a"><div class="faq-a-inner"><p>I edit for the audience the content is intended for. Focusing on clarity, pacing, and viewer experience makes content easier to follow, improves retention, and helps it perform better.</p></div></div>
-          </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="contact-card">
-      <div class="dot-field"></div>
-      <div class="contact-inner">
-        <span class="label-mono">Work with me</span>
-        <h2>Let&rsquo;s make content that <span class="dim">holds attention.</span></h2>
-        <div class="hero-btns">
-          <a href="mailto:editbyujjwal18@gmail.com" class="btn-hero primary">editbyujjwal18@gmail.com</a>
-          <a href="https://wa.me/919162549229" target="_blank" rel="noopener noreferrer" class="btn-hero ghost">WhatsApp</a>
+        <div class="soft-card faq-item">
+          <button><span class="q">What's your editing style?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div><p>I focus on clean, simple edits that make content easier to follow. Every cut, caption, and visual element is added with a purpose, helping the message stay clear and easy to understand.</p></div></div>
+        </div>
+        <div class="soft-card faq-item">
+          <button><span class="q">Can you show similar work you've done before?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div><p>Yes. You can explore my selected work above to get a better understanding of my editing style and the type of content I work on.</p></div></div>
+        </div>
+        <div class="soft-card faq-item">
+          <button><span class="q">What's your turnaround time?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div><p>Turnaround depends on the scope, length, and complexity of the project. Once I review the requirements, I'll provide a clear delivery timeline.</p></div></div>
+        </div>
+        <div class="soft-card faq-item">
+          <button><span class="q">How many revisions do you offer?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div><p>Unlimited revisions, so the final video aligns with your expectations and goals.</p></div></div>
+        </div>
+        <div class="soft-card faq-item">
+          <button><span class="q">How do your edits help the content?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div><p>I edit for the audience the content is intended for. Focusing on clarity, pacing, and viewer experience makes content easier to follow, improves retention, and helps it perform better.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <span class="label-mono">&copy; 2026 Ujjwal Kumar</span>
-    <a href="https://www.instagram.com/editbyujjwal/" target="_blank" rel="noopener noreferrer" class="label-mono">Instagram</a>
-  </footer>
-
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="lift-card contact-card">
+      <div class="dot-field"></div>
+      <div class="contact-inner">
+        <span class="label-mono">Work with me</span>
+        <h2>Let's make content that <span class="dim">holds attention.</span></h2>
+        <div class="contact-btns">
+          <a href="mailto:editbyujjwal18@gmail.com" class="btn-hero dark">editbyujjwal18@gmail.com</a>
+          <a href="https://wa.me/919162549229" target="_blank" rel="noopener noreferrer" class="btn-hero light">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="page-end"></div>
 </main>
 
 <script>
-// Tabs
-var tabShort = document.getElementById('tab-short'),
-    tabLong = document.getElementById('tab-long'),
-    gridShort = document.getElementById('grid-short'),
-    gridLong = document.getElementById('grid-long');
-tabShort.addEventListener('click', function () {
-  tabShort.classList.add('active'); tabLong.classList.remove('active');
-  gridShort.style.display = 'grid'; gridLong.style.display = 'none'; stopOtherVideos(null);
-});
-tabLong.addEventListener('click', function () {
-  tabLong.classList.add('active'); tabShort.classList.remove('active');
-  gridLong.style.display = 'grid'; gridShort.style.display = 'none'; stopOtherVideos(null);
-});
-
-// Click-to-play video - no controls, only one video plays at a time
-var thumbHTML = new WeakMap();
-function stopOtherVideos(except) {
-  document.querySelectorAll('.work-media[data-video]').forEach(function (other) {
-    if (other !== except && other.querySelector('video')) other.innerHTML = thumbHTML.get(other);
-  });
-}
-document.querySelectorAll('.work-media[data-video]').forEach(function (box) {
-  thumbHTML.set(box, box.innerHTML);
-  box.addEventListener('click', function () {
-    if (box.querySelector('video')) { box.innerHTML = thumbHTML.get(box); return; }
-    stopOtherVideos(box);
-    var v = document.createElement('video');
-    v.src = box.getAttribute('data-video');
-    var img = box.querySelector('img');
-    if (img) v.poster = img.getAttribute('src');
-    v.autoplay = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline','');
-    v.preload = 'auto';
-    box.innerHTML = '';
-    box.appendChild(v);
-  });
-});
-
-// FAQ accordion — all collapsed by default
-document.querySelectorAll('.faq-item').forEach(function (item) {
-  item.querySelector('.faq-q').addEventListener('click', function () {
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(function (o) {
-      o.classList.remove('open');
-      o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  // Tabs
+  var tabButtons = document.querySelectorAll(".tabs button");
+  tabButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      tabButtons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      stopCurrent();
+      document.getElementById("grid-reels").hidden = btn.dataset.tab !== "reels";
+      document.getElementById("grid-longs").hidden = btn.dataset.tab !== "longs";
     });
-    if (!isOpen) {
-      item.classList.add('open');
-      item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
-    }
   });
-});
+
+  // Click-to-play video (loads only on click, one at a time, no controls)
+  var current = null;
+  function stopCurrent() {
+    if (!current) return;
+    var frame = current;
+    current = null;
+    var vid = frame.querySelector("video");
+    if (vid) { vid.pause(); vid.remove(); }
+    var img = frame.querySelector("img");
+    var play = frame.querySelector(".play-btn");
+    if (img) img.style.display = "";
+    if (play) play.style.display = "";
+  }
+  document.querySelectorAll(".frame[data-video]").forEach(function (frame) {
+    frame.addEventListener("click", function () {
+      if (current === frame) { stopCurrent(); return; }
+      stopCurrent();
+      var img = frame.querySelector("img");
+      var play = frame.querySelector(".play-btn");
+      var vid = document.createElement("video");
+      vid.src = frame.dataset.video;
+      vid.autoplay = true;
+      vid.loop = true;
+      vid.playsInline = true;
+      vid.setAttribute("playsinline", "");
+      vid.preload = "auto";
+      if (img) { vid.poster = img.getAttribute("src"); img.style.display = "none"; }
+      if (play) play.style.display = "none";
+      frame.appendChild(vid);
+      current = frame;
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-item button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.parentElement;
+      var wasOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(function (i) {
+        i.classList.remove("open");
+        i.classList.remove("lift-card");
+        i.classList.add("soft-card");
+      });
+      if (!wasOpen) {
+        item.classList.add("open");
+        item.classList.remove("soft-card");
+        item.classList.add("lift-card");
+      }
+    });
+  });
 </script>
 </body>
 </html>
