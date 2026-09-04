@@ -42,13 +42,13 @@
     color: var(--muted-foreground);
   }
   .soft-card {
-    background: linear-gradient(180deg, var(--card), #e9ebef);
+    background: linear-gradient(180deg, #ffffff, #f5f5f7);
     border: 1px solid rgba(38,39,44,.06);
     border-radius: var(--radius);
     box-shadow: var(--soft);
   }
   .lift-card {
-    background: linear-gradient(180deg, var(--card), #e4e6ea);
+    background: linear-gradient(180deg, #ffffff, #f0f0f2);
     border: 1px solid rgba(38,39,44,.07);
     border-radius: var(--radius);
     box-shadow: var(--lift);
@@ -212,7 +212,15 @@
     .contact-inner h2 { font-size: 56px; }
     .play-btn span { width: 56px; height: 56px; }
   }
-</style>
+
+    *{-webkit-tap-highlight-color:transparent}
+    html{-webkit-text-size-adjust:100%}
+    body{-webkit-touch-callout:none}
+    img,video,svg,button,a,figure{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
+    img,video{pointer-events:none}
+    a,button{outline:none}
+    :focus-visible{outline:2px solid #b9bac0;outline-offset:2px}
+  </style>
 </head>
 <body>
 
@@ -265,8 +273,8 @@
 
     <div class="work-grid reels" id="grid-reels">
       <figure>
-        <div class="frame reel" data-video="1.mp4">
-          <img src="1t.jpg" alt="Talking head reel" loading="lazy" />
+        <div class="frame reel" data-video="videos/reel-1.mp4">
+          <img src="images/reel-1-thumbnail.jpg" alt="Talking head reel" loading="lazy" />
           <span class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px"><path d="M8 5v14l11-7z"/></svg></span></span>
         </div>
         <figcaption><span class="lbl">Talking head</span><span class="meta">01</span></figcaption>
@@ -472,5 +480,6 @@
     });
   });
 </script>
+  <script>document.addEventListener('contextmenu',function(e){e.preventDefault()});</script>
 </body>
 </html>
