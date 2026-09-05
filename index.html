@@ -429,36 +429,72 @@
     });
   });
 
-  // Click-to-play video (loads only on click, one at a time, no controls)
+  // Preload videos so clicking starts playback immediately.
+  // Videos stay in the DOM instead of being created only after the click.
   var current = null;
-  function stopCurrent() {
-    if (!current) return;
-    var frame = current;
-    current = null;
-    var vid = frame.querySelector("video");
-    if (vid) { vid.pause(); vid.remove(); }
+
+  document.querySelectorAll(".frame[data-video]").forEach(function (frame) {
     var img = frame.querySelector("img");
     var play = frame.querySelector(".play-btn");
-    if (img) img.style.display = "";
-    if (play) play.style.display = "";
-  }
-  document.querySelectorAll(".frame[data-video]").forEach(function (frame) {
+
+    var vid = document.createElement("video");
+    vid.src = frame.dataset.video;
+    vid.loop = true;
+    vid.muted = true;
+    vid.playsInline = true;
+    vid.setAttribute("playsinline", "");
+    vid.preload = "auto";
+    if (img) vid.poster = img.getAttribute("src");
+
+    vid.style.position = "absolute";
+    vid.style.inset = "0";
+    vid.style.width = "100%";
+    vid.style.height = "100%";
+    vid.style.objectFit = "cover";
+    vid.style.display = "none";
+
+    frame.appendChild(vid);
+    vid.load();
+
     frame.addEventListener("click", function () {
-      if (current === frame) { stopCurrent(); return; }
-      stopCurrent();
-      var img = frame.querySelector("img");
-      var play = frame.querySelector(".play-btn");
-      var vid = document.createElement("video");
-      vid.src = frame.dataset.video;
-      vid.autoplay = true;
-      vid.loop = true;
-      vid.playsInline = true;
-      vid.setAttribute("playsinline", "");
-      vid.preload = "auto";
-      if (img) { vid.poster = img.getAttribute("src"); img.style.display = "none"; }
-      if (play) play.style.display = "none";
-      frame.appendChild(vid);
+      if (current === frame) {
+        vid.pause();
+        vid.currentTime = 0;
+        vid.style.display = "none";
+        if (img) img.style.display = "";
+        if (play) play.style.display = "";
+        current = null;
+        return;
+      }
+
+      if (current) {
+        var oldFrame = current;
+        var oldVid = oldFrame.querySelector("video");
+        var oldImg = oldFrame.querySelector("img");
+        var oldPlay = oldFrame.querySelector(".play-btn");
+
+        if (oldVid) {
+          oldVid.pause();
+          oldVid.currentTime = 0;
+          oldVid.style.display = "none";
+        }
+        if (oldImg) oldImg.style.display = "";
+        if (oldPlay) oldPlay.style.display = "";
+      }
+
       current = frame;
+      if (img) img.style.display = "none";
+      if (play) play.style.display = "none";
+      vid.style.display = "block";
+
+      var playPromise = vid.play();
+      if (playPromise) {
+        playPromise.catch(function () {
+          vid.addEventListener("canplay", function () {
+            vid.play().catch(function () {});
+          }, { once: true });
+        });
+      }
     });
   });
 
